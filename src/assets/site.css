@@ -10,6 +10,7 @@ a{color:var(--primary);text-decoration:none}.wrap{max-width:1180px;margin:0 auto
 header{background:var(--primary-d);position:sticky;top:env(safe-area-inset-top,0px);z-index:20;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .bar{display:flex;align-items:center;gap:14px;min-height:64px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:10px;color:#fff}
+.brand img { height: 64px; width: auto; display: block; }
 .logo{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#083a66;display:grid;place-items:center;font-weight:800;font-size:13px}
 .brand b{display:block;font-size:15px;letter-spacing:.5px;line-height:1.1}.brand small{font-size:11px;opacity:.8}
 nav{margin-left:auto}nav>ul{display:flex;list-style:none;margin:0;padding:0;gap:2px}nav li{position:relative}
