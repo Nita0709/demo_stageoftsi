@@ -1,0 +1,42 @@
+<!--meta title="Beranda" page="beranda" hero="" crumb=""-->
+<main class="wrap layout">
+ <div>
+  <section class="card"><h2 class="sec">Gempa Bumi Terkini M5+</h2>
+   <div class="tw"><table><thead><tr><th>Tanggal</th><th>Jam</th><th>Mag</th><th>Kedalaman</th><th>Wilayah</th></tr></thead><tbody id="gempa"></tbody></table></div>
+   <p class="note" id="gnote"></p></section>
+
+  <section class="card"><h2 class="sec">Highlight</h2>
+   <div class="car"><div class="slides" id="slides">
+    <div class="slide s1"><b>Judul highlight 1</b><span>Ganti dengan foto kegiatan / pengumuman</span></div>
+    <div class="slide s2"><b>Judul highlight 2</b><span>Ganti dengan foto kegiatan / pengumuman</span></div>
+    <div class="slide s3"><b>Judul highlight 3</b><span>Ganti dengan foto kegiatan / pengumuman</span></div>
+   </div><button class="cb p" id="prev" aria-label="Previous">‹</button><button class="cb n" id="next" aria-label="Next">›</button></div></section>
+
+  <section class="card"><h2 class="sec">Layanan</h2>
+   <div class="lay">
+    <div class="ly"><div class="ico">🌋</div><h3>Informasi Geofisika</h3><p>Menyediakan informasi kejadian gempa bumi, potensi tsunami, dan kejadian petir</p></div>
+    <div class="ly"><div class="ico">📄</div><h3>Permintaan Data</h3><p>Melayani permintaan data cuaca, data petir, dan kejadian gempa yang lalu.</p></div>
+    <div class="ly"><div class="ico">🕐</div><h3>Informasi Tanda Waktu</h3><p>Menyediakan informasi zona waktu, terbit terbenam matahari, hilal</p></div>
+    <div class="ly"><div class="ico">🎓</div><h3>Praktek Kerja Lapangan</h3><p>Menerima mahasiswa yang ingin melaksanakan PKL sesuai jurusan terkait</p></div>
+    <div class="ly"><div class="ico">🎤</div><h3>Narasumber</h3><p>Melayani permintaan sebagai narasumber sesuai tugas &amp; fungsi BMKG</p></div>
+    <div class="ly"><div class="ico">🏫</div><h3>Kunjungan Sekolah</h3><p>Mengenalkan mitigasi bencana gempabumi dan tsunami kepada siswa sekolah</p></div>
+   </div></section>
+ </div>
+ {{sidebar}}
+</main>
+<script>
+// Gempa M5+: ambil dari API BMKG; jika gagal tampilkan data contoh
+const sample=[["19 Okt 2026","08:12:30 WIB","5.2","10 km","Contoh: Barat Daya Nias Selatan"],["17 Okt 2026","21:45:10 WIB","5.6","35 km","Contoh: Laut Banda"],["15 Okt 2026","03:20:55 WIB","5.1","12 km","Contoh: Selatan Jawa Barat"]];
+function draw(rows,note){document.getElementById("gempa").innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="mag">${r[2]}</span></td><td>${r[3]}</td><td>${r[4]}</td></tr>`).join("");document.getElementById("gnote").textContent=note}
+fetch("https://data.bmkg.go.id/DataMKG/TEWS/gempaterkini.json").then(r=>r.json()).then(j=>{
+ draw(j.Infogempa.gempa.slice(0,8).map(g=>[g.Tanggal,g.Jam,g.Magnitude,g.Kedalaman,g.Wilayah]),"Sumber: data.bmkg.go.id");
+}).catch(()=>draw(sample,"Data contoh. Di website sendiri, tabel ini otomatis terisi dari data.bmkg.go.id."));
+// Carousel (slide dari admin dimuat setelah content.json terbaca)
+let i=0,n=3;const s=document.getElementById("slides");
+function go(k){i=(k+n)%n;s.style.transform=`translateX(-${i*100}%)`}
+document.getElementById("prev").onclick=()=>go(i-1);document.getElementById("next").onclick=()=>go(i+1);
+setInterval(()=>go(i+1),6000);
+document.addEventListener("content-loaded",e=>{const h=e.detail.highlight;if(!h||!h.length)return;
+ const esc=t=>String(t).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+ s.innerHTML=h.map(x=>`<div class="slide" style="background:linear-gradient(transparent 40%,rgba(0,0,0,.7)),url('${esc(x.image)}') center/cover"><b>${esc(x.title)}</b><span>${esc(x.desc||"")}</span></div>`).join("");n=h.length;go(0)});
+</script>

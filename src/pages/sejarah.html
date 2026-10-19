@@ -1,0 +1,21 @@
+<!--meta title="Sejarah" page="sejarah" hero="Sejarah" crumb="Beranda › Profil › Sejarah"-->
+<main class="wrap layout">
+ <div>
+  <div class="card">
+   <h2>Sejarah</h2>
+   <div class="pano">Foto panorama Stasiun Geofisika Deli Serdang<br>(ganti dengan &lt;img&gt;)</div>
+   <p>[Isi paragraf sejarah: lokasi dan alamat kantor, perubahan nama stasiun beserta dasar peraturannya, koordinat geografis dan ketinggian, tahun berdiri, serta peralatan pertama yang digunakan.]</p>
+   <p>[Isi paragraf tambahan bila perlu, misalnya peralatan bersejarah atau museum mini stasiun.]</p>
+   <h3>Kepala Stasiun Geofisika Deli Serdang</h3>
+   <p>Sejak beroperasi hingga saat ini, pimpinan di Stasiun Geofisika Deli Serdang telah berganti sebanyak <b id="jml">0</b> orang kepala stasiun.</p>
+   <div class="tw"><table><thead><tr><th style="width:60px">No</th><th>Tahun Menjabat</th><th>Nama Kepala Stasiun</th></tr></thead><tbody id="kepala"></tbody></table></div>
+  </div>
+ </div>
+ {{sidebar}}
+</main>
+<script>
+// Daftar kepala stasiun: [tahun menjabat, nama]. Baris terakhir ditandai sebagai kepala stasiun saat ini.
+const kepala=[["[tahun] - [tahun]","[Nama kepala stasiun 1]"],["[tahun] - [tahun]","[Nama kepala stasiun 2]"],["[tahun] - sekarang","[Nama kepala stasiun saat ini]"]];
+document.getElementById("kepala").innerHTML=kepala.map((k,i)=>`<tr class="${i===kepala.length-1?"now":""}"><td>${i+1}</td><td>${k[0]}</td><td>${k[1]}</td></tr>`).join("");
+document.getElementById("jml").textContent=kepala.length;
+</script>

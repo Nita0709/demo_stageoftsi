@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Admin – Stasiun Geofisika Deli Serdang</title>
+<style>
+:root{--bg:#f4f7fb;--surface:#fff;--text:#1b2a3a;--muted:#5b6b7c;--primary:#0b4f8a;--primary-d:#083a66;--accent:#f5a623;--border:#dde5ee;--ok:#e6f6ec;--okt:#17653a;--err:#fdeaea;--errt:#a12626;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root{--bg:#0e1621;--surface:#162232;--text:#e6edf5;--muted:#9fb0c3;--primary:#5aa9ec;--border:#26364a;--ok:#133524;--okt:#7ee0a5;--err:#3a1818;--errt:#ff9b9b;color-scheme:dark}}
+*{box-sizing:border-box}html,body{background:var(--bg)}body{margin:0;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+.hide{display:none!important}a{color:var(--primary)}
+.logo{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#083a66;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.brand{display:flex;align-items:center;gap:10px}.brand b{display:block;font-size:15px}.brand small{opacity:.8;font-size:12px}
+.app{display:grid;grid-template-columns:240px minmax(0,1fr);min-height:100vh}
+.side{background:var(--primary-d);color:#fff;padding:18px 14px}.side .brand{padding:4px 6px 18px;border-bottom:1px solid rgba(255,255,255,.15);margin-bottom:6px}
+.grp{font-size:11px;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin:14px 12px 6px}
+.side nav a{display:flex;gap:10px;color:#dbe7f3;text-decoration:none;padding:9px 12px;border-radius:8px;margin-bottom:3px;font-size:14px}
+.side nav a:hover{background:rgba(255,255,255,.1)}.side nav a.on{background:var(--accent);color:#083a66;font-weight:600}
+.top{display:flex;align-items:center;gap:12px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--border)}
+.top h1{margin:0;font-size:20px;color:var(--primary)}.top .r{margin-left:auto;display:flex;align-items:center;gap:10px}.who{font-size:13px;color:var(--muted)}
+main{padding:24px;max-width:1000px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;margin-bottom:20px}
+h2{margin:0 0 14px;font-size:18px;color:var(--primary)}label{display:block;font-size:13px;font-weight:600;margin-bottom:4px}
+input,select{width:100%;padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font:inherit}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:14px}.g .full{grid-column:1/-1}small.h{color:var(--muted);font-size:12px}
+.btn{display:inline-block;background:var(--primary);color:#fff;border:0;border-radius:8px;padding:10px 20px;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+.btn:disabled{opacity:.6;cursor:wait}.btn.s{padding:5px 12px;font-size:13px}.btn.d{background:#c0392b}.btn.g2{background:transparent;color:var(--primary);border:1px solid var(--primary)}.btn.o{background:transparent;color:var(--text);border:1px solid var(--border)}
+.msg{padding:10px 14px;border-radius:8px;margin-bottom:16px;font-size:14px}.msg.ok{background:var(--ok);color:var(--okt)}.msg.err{background:var(--err);color:var(--errt)}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--border);white-space:nowrap}
+th{color:var(--muted);font-size:12px;text-transform:uppercase}.empty{text-align:center;color:var(--muted);padding:26px 0}.acts{display:flex;gap:6px}
+.th{width:36px;height:48px;object-fit:cover;border-radius:4px;background:var(--border);display:block}.wt{width:96px;height:54px;object-fit:cover;border-radius:4px;display:block}
+.prev{max-width:100%;max-height:260px;border-radius:8px;border:1px solid var(--border);margin-bottom:12px;display:block}
+.auth{display:grid;place-items:center;min-height:100vh;padding:16px}
+.login{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:28px}
+.login .brand{flex-direction:column;text-align:center;margin-bottom:18px}.login .logo{width:56px;height:56px;font-size:15px}.login h2{text-align:center}.login p{margin:0 0 14px}
+@media(max-width:800px){.app{grid-template-columns:1fr}.side{padding:10px 12px}.side .brand,.grp{display:none}.side nav{display:flex;gap:6px;overflow-x:auto}.side nav a{white-space:nowrap;margin:0}.g{grid-template-columns:1fr}main{padding:16px}.top{padding:12px 16px}.who{display:none}}
+</style></head><body>
+<div id="auth" class="auth hide"></div>
+<div id="app" class="app hide">
+ <aside class="side"><div class="brand"><span class="logo">BMKG</span><span><b>Admin Geofisika</b><small>Stageof Deli Serdang</small></span></div>
+  <nav><div class="grp">Beranda</div><a href="#highlight">🖼️ Highlight</a><a href="#artikel">📰 Press Release / Artikel</a><a href="#gambar">🗺️ ShakeMap &amp; IKM</a>
+   <div class="grp">Publikasi</div><a href="#buletin">📚 Buletin Geodinamika</a>
+   <div class="grp">Pengaturan</div><a href="#akun">👤 Akun Admin</a>
+   <div class="grp">Website</div><a href="/" target="_blank" rel="noopener">🌐 Lihat Website</a></nav></aside>
+ <div><div class="top"><h1 id="ttl"></h1><div class="r"><span class="who" id="who"></span><button class="btn o s" id="out">Logout</button></div></div>
+  <main><div id="msg"></div><div id="main"></div></main></div>
+</div>
+<script type="module">
+const $ = s => document.querySelector(s);
+const esc = t => String(t ?? '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const BULAN = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+const TITLES = { highlight: 'Highlight Beranda', artikel: 'Press Release / Artikel', gambar: 'ShakeMap & IKM', buletin: 'Buletin Geodinamika', akun: 'Akun Admin' };
+let ME = null;
+
+const toast = (m, t = 'ok') => { $('#msg').innerHTML = `<div class="msg ${t}">${esc(m)}</div>`; scrollTo(0, 0); };
+async function api(action, body) {
+  const r = await fetch('/api/admin?action=' + action, body === undefined ? {} : { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  const j = await r.json().catch(() => ({ ok: false, error: 'Respons server tidak valid.' }));
+  if (!j.ok) { if (r.status === 401 && ME) { ME = null; boot(); } throw new Error(j.error || 'Terjadi kesalahan.'); }
+  return j;
+}
+const pub = async t => (await fetch('/api/public?type=' + t, { cache: 'no-store' })).json();
+// Unggah langsung dari browser ke Vercel Blob (mendukung file besar, tidak lewat fungsi server)
+async function up(file, folder, maxMB) {
+  if (!file || !file.size) return '';
+  if (file.size > maxMB * 1048576) throw new Error(`${file.name} melebihi ${maxMB} MB.`);
+  const { upload } = await import('https://esm.sh/@vercel/blob@0.27.0/client');
+  return (await upload(`${folder}/${file.name}`, file, { access: 'public', handleUploadUrl: '/api/admin?action=blob' })).url;
+}
+const table = (heads, rows, empty) => `<div class="tw"><table><tr>${heads.map(h => `<th>${h}</th>`).join('')}</tr>` +
+  (rows.length ? rows.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('') : `<tr><td colspan="${heads.length}" class="empty">${empty}</td></tr>`) + '</table></div>';
+const delBtn = (action, p) => `<button class="btn s d" data-del="${action}" data-p='${esc(JSON.stringify(p))}'>Hapus</button>`;
+const IMG = 'image/jpeg,image/png,image/webp';
+
+const V = {
+  async highlight() {
+    const r = (await pub('content')).highlight;
+    return `<div class="card"><h2>Tambah Slide Highlight</h2><form data-f="highlight"><div class="g">
+      <div><label>Judul</label><input name="judul" maxlength="100" required></div>
+      <div><label>Gambar</label><input type="file" name="gambar" accept="${IMG}" required><small class="h">JPG/PNG/WebP, maks. 3 MB, disarankan rasio 16:6.</small></div>
+      <div class="full"><label>Deskripsi singkat (opsional)</label><input name="desc" maxlength="160"></div>
+      <div class="full"><button class="btn">Tambah Highlight</button></div></div></form></div>
+      <div class="card"><h2>Slide Aktif (${r.length}/8)</h2>${table(['Gambar', 'Judul', 'Aksi'],
+        r.map(h => [`<img class="wt" src="${esc(h.image)}" alt="">`, `${esc(h.title)}<br><small class="h">${esc(h.desc)}</small>`, delBtn('highlight_del', { id: h.id })]),
+        'Belum ada highlight. Beranda memakai slide bawaan.')}</div>`;
+  },
+  async artikel() {
+    const r = (await pub('content')).artikel;
+    return `<div class="card"><h2>Tambah Artikel</h2><form data-f="artikel"><div class="g">
+      <div class="full"><label>Judul</label><input name="judul" maxlength="150" required></div>
+      <div><label>Tanggal</label><input type="date" name="tanggal" value="${new Date().toISOString().slice(0, 10)}"></div>
+      <div><label>Tautan (opsional)</label><input type="url" name="tautan" placeholder="https://..."></div>
+      <div class="full"><label>File PDF (opsional)</label><input type="file" name="pdf" accept="application/pdf"><small class="h">Maks. 20 MB. Isi tautan <b>atau</b> unggah PDF.</small></div>
+      <div class="full"><button class="btn">Tambah Artikel</button></div></div></form></div>
+      <div class="card"><h2>Daftar Artikel (${r.length})</h2>${table(['Tanggal', 'Judul', 'Sumber', 'Aksi'],
+        r.map(a => [esc(a.date), esc(a.title), `<a href="${esc(a.link || a.file)}" target="_blank" rel="noopener">${a.link ? 'Tautan' : 'PDF'}</a>`, delBtn('artikel_del', { id: a.id })]), 'Belum ada artikel.')}</div>`;
+  },
+  async gambar() {
+    const c = await pub('content');
+    return [['shakemap', 'ShakeMap Gempa Dirasakan'], ['ikm', 'Indeks Kepuasan Masyarakat']].map(([k, l]) => `<div class="card"><h2>${l}</h2>
+      ${c[k] ? `<img class="prev" src="${esc(c[k])}" alt="">` : '<p class="empty" style="text-align:left;padding:0 0 12px">Belum ada gambar.</p>'}
+      <form data-f="gambar"><input type="hidden" name="nama" value="${k}"><div class="g"><div><label>Ganti gambar</label><input type="file" name="gambar" accept="${IMG}" required><small class="h">JPG/PNG/WebP, maks. 3 MB.</small></div></div>
+      <p style="margin:14px 0 0"><button class="btn">Unggah</button> ${c[k] ? delBtn('gambar_del', { nama: k }) : ''}</p></form></div>`).join('');
+  },
+  async buletin() {
+    const r = await pub('buletin'), now = new Date();
+    return `<div class="card"><h2>Tambah / Ganti Edisi Buletin</h2><form data-f="buletin" id="fbul"><div class="g">
+      <div><label>Tahun</label><input type="number" name="tahun" min="2000" max="2100" value="${now.getFullYear()}" required></div>
+      <div><label>Bulan</label><select name="bulan">${BULAN.map((b, i) => `<option value="${i + 1}" ${i === now.getMonth() ? 'selected' : ''}>${b}</option>`).join('')}</select></div>
+      <div><label>File PDF</label><input type="file" name="pdf" accept="application/pdf"><small class="h">Maks. 20 MB. Kosongkan jika hanya mengganti cover.</small></div>
+      <div><label>Cover (opsional)</label><input type="file" name="cover" accept="${IMG}"><small class="h">JPG/PNG/WebP, maks. 3 MB, rasio 3:4.</small></div>
+      <div class="full"><small class="h">Jika bulan &amp; tahun yang sama sudah ada, file lama akan diganti.</small></div>
+      <div class="full"><button class="btn">Simpan Edisi</button></div></div></form></div>
+      <div class="card"><h2>Semua Edisi (${r.length})</h2>${table(['Cover', 'Edisi', 'PDF', 'Aksi'],
+        r.map(e => [e.cover ? `<img class="th" src="${esc(e.cover)}" alt="">` : '<span class="th"></span>', `${BULAN[e.bulan - 1]} ${e.tahun}`,
+          e.pdf ? `<a href="${esc(e.pdf)}" target="_blank" rel="noopener">Lihat</a>` : '–',
+          `<div class="acts"><button class="btn s g2" data-edit='${e.tahun}-${e.bulan}'>Ganti</button>${delBtn('buletin_del', { id: e.id })}</div>`]), 'Belum ada edisi.')}</div>`;
+  },
+  async akun() {
+    const us = (await api('users')).users;
+    return `<div class="card"><h2>Ganti Password Saya (${esc(ME)})</h2><form data-f="pw"><div class="g">
+      <div><label>Password lama</label><input type="password" name="old" required autocomplete="current-password"></div>
+      <div><label>Password baru</label><input type="password" name="new" required minlength="8" autocomplete="new-password"></div>
+      <div class="full"><button class="btn">Ganti Password</button></div></div></form></div>
+      <div class="card"><h2>Tambah Akun Admin</h2><form data-f="user"><div class="g">
+      <div><label>Username</label><input name="username" required pattern="[A-Za-z0-9_]{3,30}"></div>
+      <div><label>Password</label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
+      <div class="full"><button class="btn">Tambah Akun</button></div></div></form></div>
+      <div class="card"><h2>Daftar Akun</h2>${table(['Username', 'Aksi'], us.map(u => [esc(u) + (u === ME ? ' <small class="h">(Anda)</small>' : ''), u === ME ? '' : delBtn('user_del', { username: u })]), '')}</div>`;
+  },
+};
+// Pengiriman form: unggah file dulu ke Blob, lalu simpan datanya ke database
+const H = {
+  async highlight(fd) { await api('highlight_add', { judul: fd.get('judul'), deskripsi: fd.get('desc'), gambar: await up(fd.get('gambar'), 'highlight', 3) }); },
+  async artikel(fd) { await api('artikel_add', { judul: fd.get('judul'), tanggal: fd.get('tanggal'), tautan: fd.get('tautan'), file: await up(fd.get('pdf'), 'artikel', 20) }); },
+  async gambar(fd) { await api('gambar_save', { nama: fd.get('nama'), path: await up(fd.get('gambar'), fd.get('nama'), 3) }); },
+  async buletin(fd) {
+    const y = fd.get('tahun'), m = String(fd.get('bulan')).padStart(2, '0');
+    await api('buletin_save', { tahun: y, bulan: fd.get('bulan'), pdf: await up(fd.get('pdf'), `buletin/${y}${m}`, 20), cover: await up(fd.get('cover'), `buletin/${y}${m}`, 3) });
+  },
+  async pw(fd) { await api('user_pw', { old: fd.get('old'), new: fd.get('new') }); },
+  async user(fd) { await api('user_add', { username: fd.get('username'), password: fd.get('password') }); },
+};
+async function render() {
+  const k = location.hash.slice(1) in V ? location.hash.slice(1) : 'highlight';
+  $('#ttl').textContent = TITLES[k];
+  document.querySelectorAll('.side nav a[href^="#"]').forEach(a => a.classList.toggle('on', a.hash === '#' + k));
+  $('#main').innerHTML = '<p class="empty">Memuat…</p>';
+  try { $('#main').innerHTML = await V[k](); } catch (e) { $('#main').innerHTML = ''; toast(e.message, 'err'); }
+}
+document.addEventListener('submit', async e => {
+  const f = e.target.dataset.f; if (!f) return;
+  e.preventDefault();
+  const btn = e.target.querySelector('button:not([data-del])'), t = btn.textContent;
+  btn.disabled = true; btn.textContent = 'Memproses…';
+  try { await H[f](new FormData(e.target)); toast('Berhasil disimpan.'); await render(); }
+  catch (x) { toast(x.message, 'err'); btn.disabled = false; btn.textContent = t; }
+});
+document.addEventListener('click', async e => {
+  const d = e.target.closest('[data-del]');
+  if (d) { if (!confirm('Yakin menghapus?')) return; d.disabled = true;
+    try { await api(d.dataset.del, JSON.parse(d.dataset.p)); toast('Berhasil dihapus.'); await render(); } catch (x) { toast(x.message, 'err'); d.disabled = false; } return; }
+  const ed = e.target.closest('[data-edit]');
+  if (ed) { const [y, m] = ed.dataset.edit.split('-'), f = $('#fbul'); f.tahun.value = y; f.bulan.value = m; f.scrollIntoView({ behavior: 'smooth' }); }
+});
+addEventListener('hashchange', () => ME && render());
+$('#out').onclick = async () => { await api('logout', {}).catch(() => {}); ME = null; boot(); };
+
+function authForm(setup) {
+  $('#auth').innerHTML = `<form class="login" id="fa"><div class="brand"><span class="logo">BMKG</span><span><b>Admin Stasiun Geofisika</b><small>Deli Serdang</small></span></div>
+    <h2>${setup ? 'Buat Akun Admin' : 'Login'}</h2><div id="am"></div>
+    <p><label>Username</label><input name="username" required autofocus autocomplete="username"></p>
+    <p><label>Password</label><input type="password" name="password" required ${setup ? 'minlength="8"' : ''} autocomplete="${setup ? 'new-password' : 'current-password'}"></p>
+    ${setup ? '<p><label>Kunci setup (jika diatur di Vercel)</label><input name="key" type="password"></p><p><small class="h">Form ini hanya muncul sekali dan terkunci setelah akun pertama dibuat.</small></p>' : ''}
+    <button class="btn" style="width:100%">${setup ? 'Buat Akun & Masuk' : 'Masuk'}</button></form>`;
+  $('#fa').onsubmit = async e => {
+    e.preventDefault(); const fd = Object.fromEntries(new FormData(e.target)), b = e.target.querySelector('button'); b.disabled = true;
+    try { await api(setup ? 'setup' : 'login', fd); boot(); } catch (x) { $('#am').innerHTML = `<div class="msg err">${esc(x.message)}</div>`; b.disabled = false; }
+  };
+}
+async function boot() {
+  const s = await fetch('/api/admin?action=status').then(r => r.json()).catch(() => null);
+  if (!s) { $('#auth').classList.remove('hide'); $('#auth').innerHTML = '<div class="login"><div class="msg err">Tidak dapat menghubungi server.</div></div>'; return; }
+  if (!s.hasUser || !s.user) { $('#app').classList.add('hide'); $('#auth').classList.remove('hide'); return authForm(!s.hasUser); }
+  ME = s.user; $('#who').textContent = '👤 ' + ME; $('#auth').classList.add('hide'); $('#app').classList.remove('hide'); render();
+}
+boot();
+</script>
+</body></html>

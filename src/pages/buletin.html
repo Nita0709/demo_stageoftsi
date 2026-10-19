@@ -1,0 +1,24 @@
+<!--meta title="Buletin Geodinamika" page="buletin" hero="Buletin Geodinamika" crumb="Beranda › Publikasi › Buletin Geodinamika"-->
+<main class="wrap layout">
+ <div>
+  <div class="card">
+   <h2>Buletin Geodinamika</h2>
+   <p>Majalah Geodinamika merupakan salah satu bentuk pelayanan informasi Stasiun Geofisika Deli Serdang kepada masyarakat Provinsi Sumatera Utara, khususnya mengenai fenomena meteorologi, klimatologi, dan geofisika. Buletin ini berisi pengetahuan dan ulasan gempabumi, percepatan tanah, kelistrikan udara, dinamika iklim, almanak tanda waktu, dan prakiraan musim hujan. Hasilnya disampaikan dalam bentuk informasi, tabulasi, diagram, peta, dan data yang saling melengkapi.</p>
+   <ul class="chips"><li>Gempa Bumi</li><li>Gempa Bumi Dirasakan</li><li>Kelistrikan Udara</li><li>Artikel</li><li>Curah Hujan</li><li>Prakiraan Curah Hujan</li><li>Prakiraan Sifat Hujan</li><li>Almanak</li></ul>
+  </div>
+  <div id="years"></div>
+ </div>
+ {{sidebar}}
+</main>
+<script>
+// Edisi dibaca dari buletin.json (diatur lewat admin). Jika belum ada, tampil kosong.
+const bln=["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+fetch("/api/public?type=buletin",{cache:"no-store"}).then(r=>r.json()).then(list=>{
+ const by={};list.forEach(r=>(by[r.tahun]=by[r.tahun]||{})[r.bulan]=r);
+ const esc=t=>String(t).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
+ document.getElementById("years").innerHTML=Object.keys(by).sort((a,b)=>b-a).map(y=>`<section class="year"><h3>Buletin Geodinamika Tahun ${y}</h3><div class="grid">`+
+  bln.map((m,i)=>{const r=by[y][i+1];if(!r)return"";
+   const cov=r.cover?`<img src="${esc(r.cover)}" alt="" style="width:100%;aspect-ratio:3/4;object-fit:cover;display:block">`:`<div class="cover"><small>BULETIN GEODINAMIKA</small><b>${m}</b><span>${y}</span></div>`;
+   return `<div class="ed">${cov}<h4>Edisi ${m} ${y}</h4>${r.pdf?`<a class="btn" href="${esc(r.pdf)}" target="_blank" rel="noopener">Lihat File</a>`:""}</div>`}).join("")+`</div></section>`).join("");
+}).catch(()=>{document.getElementById("years").innerHTML='<div class="card"><p>Belum ada edisi buletin.</p></div>'});
+</script>
